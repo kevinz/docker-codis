@@ -9,7 +9,6 @@
 
 # Use the base images
 FROM ubuntu:14.04
-FROM golang:1.5.1
 MAINTAINER Yongbok Kim <ruo91@yongbok.net>
 
 # Change the repository
