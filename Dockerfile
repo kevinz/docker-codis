@@ -60,7 +60,7 @@ ENV PATH $PATH:$CODIS_HOME/bin
 ENV CODIS_CONF $CODIS_HOME/conf/config.ini
 ENV CODIS_GITHUB_URL github.com/wandoulabs/codis
 RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
- && git clone https://$CODIS_GITHUB_URL $GOPATH/src/$CODIS_GITHUB_URL \
+ && git clone -v --progress https://$CODIS_GITHUB_URL $GOPATH/src/$CODIS_GITHUB_URL \
  && go get -d $CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && ./bootstrap.sh \
