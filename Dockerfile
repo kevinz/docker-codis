@@ -37,7 +37,8 @@ RUN curl -XGET https://github.com/golang/go/tags | grep tag-name > /tmp/golang_t
  && echo "export GOROOT=$GOROOT" >> /etc/profile \
  && echo "export GOPATH=$GOPATH" >> /etc/profile \
  && echo 'export PATH=$PATH:$GOROOT/bin' >> /etc/profile \
- && echo '' >> /etc/profile
+ && echo '' >> /etc/profile \
+ && ls -al "$GOROOT/bin"
 
 # ZooKeeper
 ENV ZK_VER 3.4.6
