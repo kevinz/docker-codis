@@ -61,7 +61,7 @@ ENV CODIS_CONF $CODIS_HOME/conf/config.ini
 ENV CODIS_GITHUB_URL github.com/wandoulabs/codis
 RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 #&& git clone -v --progress https://$CODIS_GITHUB_URL $GOPATH/src/$CODIS_GITHUB_URL \
-&& curl -LO http://127.0.0.1:8000/codis-master.zip \
+&& curl -LO http://nj02all01.baidupcs.com/file/497510346b979efbad4f65e39ebd6c21?bkt=p3-1400497510346b979efbad4f65e39ebd6c211dceb79900000035dd67&fid=4045545465-250528-157116314336133&time=1448971750&sign=FDTAXGERLBH-DCb740ccc5511e5e8fedcff06b081203-qOttNGVWMPaY6O0ZVQzQtvAb1%2Fg%3D&to=nj2hb&fm=Nan,B,M,t&sta_dx=3&sta_cs=0&sta_ft=zip&sta_ct=0&fm2=Nanjing02,B,M,t&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=1400497510346b979efbad4f65e39ebd6c211dceb79900000035dd67&sl=67698766&expires=8h&rt=sh&r=157382285&mlogid=7765878181452100872&vuk=4045545465&vbdid=1393539300&fin=codis-master.zip&fn=codis-master.zip&slt=pm&uta=0&rtype=1&iv=0&isw=0&dp-logid=7765878181452100872&dp-callid=0.1.1 \
 && unzip codis-master.zip $GOPATH/src/$CODIS_GITHUB_URL \
 && ls -al $GOPATH/src/$CODIS_GITHUB_URL \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
