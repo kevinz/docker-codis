@@ -25,7 +25,7 @@ WORKDIR $SRC_DIR
 ENV GO_ARCH linux-amd64
 ENV GOROOT $SRC_DIR/go
 ENV GOPATH $SRC_DIR/go_path
-ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
+ENV PATH $PATH:$GOROOT/bin
 RUN curl -XGET https://github.com/golang/go/tags | grep tag-name > /tmp/golang_tag \
  && sed -e 's/<[^>]*>//g' /tmp/golang_tag > /tmp/golang_ver \
  #&& GO_VER=`sed -e 's/      go/go/g' /tmp/golang_ver | head -n 1` && rm -f /tmp/golang_* \
@@ -65,7 +65,8 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 && tar -xzvf codis-master.tar.gz -C $GOPATH/src/$CODIS_GITHUB_URL --strip 1 \
 && ls -al $GOPATH/src/$CODIS_GITHUB_URL \
 && go get github.com/tools/godep \
-&& godep \
+&& ls -l $GOPATH/bin/ \
+&& $GOPATH/bin/godep \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && make \
