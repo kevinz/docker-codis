@@ -31,7 +31,7 @@ RUN curl -XGET https://github.com/golang/go/tags | grep tag-name > /tmp/golang_t
  #&& GO_VER=`sed -e 's/      go/go/g' /tmp/golang_ver | head -n 1` && rm -f /tmp/golang_* \
  && GO_VER="1.5.1" \
  && curl -LO "https://github.com/golang/go/archive/go$GO_VER.tar.gz" \
- && tar -C $SRC_DIR -xzf go*.tar.gz && rm -rf go*.tar.gz \
+ && tar -C $SRC_DIR -xzf go*.tar.gz \
  && echo '' >> /etc/profile \
  && echo '# Golang' >> /etc/profile \
  && echo "export GOROOT=$GOROOT" >> /etc/profile \
