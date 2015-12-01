@@ -65,6 +65,7 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 && tar -xzvf codis-master.tar.gz -C $GOPATH/src/$CODIS_GITHUB_URL --strip 1 \
 && ls -al $GOPATH/src/$CODIS_GITHUB_URL \
 && go get github.com/tools/godep \
+&& godep \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && make \
