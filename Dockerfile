@@ -60,11 +60,13 @@ ENV PATH $PATH:$CODIS_HOME/bin
 ENV CODIS_CONF $CODIS_HOME/conf/config.ini
 ENV CODIS_GITHUB_URL github.com/wandoulabs/codis
 RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
-&& git clone -v --progress https://$CODIS_GITHUB_URL $GOPATH/src/$CODIS_GITHUB_URL \
+#&& git clone -v --progress https://$CODIS_GITHUB_URL $GOPATH/src/$CODIS_GITHUB_URL \
+&& curl -LO http://127.0.0.1:8000/codis-master.zip \
+&& unzip codis-master.zip $GOPATH/src/$CODIS_GITHUB_URL \
 && ls -al $GOPATH/src/$CODIS_GITHUB_URL \
- && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
+# && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
- && ./bootstrap.sh \
+ && make \
  && mkdir $CODIS_HOME \
  && tar -C $CODIS_HOME -xvf deploy.tar \
  && cd $SRC_DIR && rm -rf $GOPATH \
