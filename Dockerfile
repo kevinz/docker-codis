@@ -12,7 +12,7 @@ FROM ubuntu:14.04
 MAINTAINER Yongbok Kim <ruo91@yongbok.net>
 
 # Change the repository
-RUN sed -i 's/archive.ubuntu.com/kr.archive.ubuntu.com/g' /etc/apt/sources.list
+RUN sed -i 's/archive.ubuntu.com/cn.archive.ubuntu.com/g' /etc/apt/sources.list
 
 # The last update and install package for docker
 RUN apt-get update && apt-get install -y supervisor git-core curl build-essential openjdk-7-jdk
@@ -28,7 +28,8 @@ ENV GOPATH $SRC_DIR/go_path
 ENV PATH $PATH:$GOROOT/bin
 RUN curl -XGET https://github.com/golang/go/tags | grep tag-name > /tmp/golang_tag \
  && sed -e 's/<[^>]*>//g' /tmp/golang_tag > /tmp/golang_ver \
- && GO_VER=`sed -e 's/      go/go/g' /tmp/golang_ver | head -n 1` && rm -f /tmp/golang_* \
+ #&& GO_VER=`sed -e 's/      go/go/g' /tmp/golang_ver | head -n 1` && rm -f /tmp/golang_* \
+ && GO_VER="1.5.1"
  && curl -LO "https://storage.googleapis.com/golang/$GO_VER.$GO_ARCH.tar.gz" \
  && tar -C $SRC_DIR -xzf go*.tar.gz && rm -rf go*.tar.gz \
  && echo '' >> /etc/profile \
@@ -64,7 +65,7 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
  && ./bootstrap.sh \
  && mkdir $CODIS_HOME \
  && tar -C $CODIS_HOME -xvf deploy.tar \
- && cd $SRC_DIR && rm -rf $GOPATH \
+# && cd $SRC_DIR && rm -rf $GOPATH \
  && echo '' >> /etc/profile \
  && echo "export CODIS_HOME=$CODIS_HOME" >> /etc/profile \
  && echo "export CODIS_CONF=$CODIS_HOME/conf/config.ini" >> /etc/profile \
