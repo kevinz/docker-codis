@@ -67,10 +67,10 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 && tar -xzvf codis-master.tar.gz -C $GOPATH/src/$CODIS_GITHUB_URL --strip 1 \
 && ls -al $GOPATH/src/$CODIS_GITHUB_URL \
 ##&& go get github.com/tools/godep \
-&& mkdir -p $GOPATH/bin \
-&& curl http://172.17.42.1:8000/godep -o $GOPATH/bin/godep \
-&& chmod a+x $GOPATH/bin/godep \
-&& ls -l $GOPATH/bin \
+#&& mkdir -p $GOPATH/bin \
+#&& curl http://172.17.42.1:8000/godep -o $GOPATH/bin/godep \
+#&& chmod a+x $GOPATH/bin/godep \
+#&& ls -l $GOPATH/bin \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && make \
