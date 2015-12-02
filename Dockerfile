@@ -64,7 +64,9 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 && curl -LO http://172.17.42.1:8000/codis-master.tar.gz \
 && tar -xzvf codis-master.tar.gz -C $GOPATH/src/$CODIS_GITHUB_URL --strip 1 \
 && ls -al $GOPATH/src/$CODIS_GITHUB_URL \
-&& go get github.com/tools/godep \
+##&& go get github.com/tools/godep \
+&& wget http://172.17.42.1:8000/godep -o $GOPATH/bin \
+&& chmod a+x $GOPATH/bin \
 && ls -l $GOPATH/bin/ \
 && ENV PATH $PATH:$GOPATH/bin \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
