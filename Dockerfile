@@ -76,11 +76,11 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
  && make 
 
 RUN mkdir -p $CODIS_HOME/bin \
-&& cp -r $GOPATH/src/$CODIS_GITHUB_URL/bin/* $CODIS_HOME/bin \
+&& cp -r $GOPATH/src/$CODIS_GITHUB_URL/bin/* $CODIS_HOME/bin 
 
  
 # && tar -C $CODIS_HOME -xvf deploy.tar \
-ADD conf/codis/* $CODIS_HOME
+ADD conf/codis $CODIS_HOME
 
 #RUN git clone https://github.com/ruo91/docker-codis.git tmp \
  #&& mv tmp/conf/codis/* $CODIS_HOME \
