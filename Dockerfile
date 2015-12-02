@@ -63,7 +63,7 @@ ENV PATH $PATH:$GOPATH/bin
 
 RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 #&& git clone -v --progress https://$CODIS_GITHUB_URL $GOPATH/src/$CODIS_GITHUB_URL \
-&& curl -LO http://172.17.42.1:8000/codis-master.tar.gz \
+&& curl -LO http://172.17.0.1:8000/codis-master.tar.gz \
 && tar -xzvf codis-master.tar.gz -C $GOPATH/src/$CODIS_GITHUB_URL --strip 1 \
 && ls -al $GOPATH/src/$CODIS_GITHUB_URL \
 ##&& go get github.com/tools/godep \
