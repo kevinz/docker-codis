@@ -75,7 +75,7 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && make 
 
-RUN mkdir $CODIS_HOME/bin \
+RUN mkdir -p $CODIS_HOME/bin \
 && cp -r $GOPATH/src/$CODIS_GITHUB_URL/bin/* $CODIS_HOME/bin \
 
  
