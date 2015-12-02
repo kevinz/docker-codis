@@ -59,6 +59,8 @@ ENV CODIS_HOME $SRC_DIR/codis
 ENV PATH $PATH:$CODIS_HOME/bin
 ENV CODIS_CONF $CODIS_HOME/conf/config.ini
 ENV CODIS_GITHUB_URL github.com/wandoulabs/codis
+ENV PATH $PATH:$GOPATH/bin
+
 RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 #&& git clone -v --progress https://$CODIS_GITHUB_URL $GOPATH/src/$CODIS_GITHUB_URL \
 && curl -LO http://172.17.42.1:8000/codis-master.tar.gz \
@@ -69,7 +71,6 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 && curl http://172.17.42.1:8000/godep -o $GOPATH/bin/godep \
 && chmod a+x $GOPATH/bin/godep \
 && ls -l $GOPATH/bin \
-&& ENV PATH $PATH:$GOPATH/bin \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && make \
