@@ -66,7 +66,7 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 && ls -al $GOPATH/src/$CODIS_GITHUB_URL \
 && go get github.com/tools/godep \
 && ls -l $GOPATH/bin/ \
-&& $GOPATH/bin/godep \
+&& ENV PATH $PATH:$GOPATH/bin \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && make \
