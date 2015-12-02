@@ -74,9 +74,10 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && make \
- && mkdir $CODIS_HOME \
+ && mkdir $CODIS_HOME 
 # && tar -C $CODIS_HOME -xvf deploy.tar \
- && git clone https://github.com/ruo91/docker-codis.git $SRC_DIR \
+
+RUN git clone https://github.com/ruo91/docker-codis.git $SRC_DIR \
  && mv /tmp/conf/codis/* $CODIS_HOME \
  #&& cd $SRC_DIR && rm -rf $GOPATH \
  && echo '' >> /etc/profile \
