@@ -80,13 +80,12 @@ RUN mkdir -p $CODIS_HOME/bin \
 
  
 # && tar -C $CODIS_HOME -xvf deploy.tar \
-ADD conf/codis $CODIS_HOME
 
 #RUN git clone https://github.com/ruo91/docker-codis.git tmp \
  #&& mv tmp/conf/codis/* $CODIS_HOME \
  #&& 
  #&& cd $SRC_DIR && rm -rf $GOPATH \
-  echo '' >> /etc/profile \
+RUN echo '' >> /etc/profile \
  && echo "export CODIS_HOME=$CODIS_HOME" >> /etc/profile \
  && echo "export CODIS_CONF=$CODIS_HOME/conf/config.ini" >> /etc/profile \
  && echo 'export PATH=$PATH:$CODIS_HOME/bin' >> /etc/profile
