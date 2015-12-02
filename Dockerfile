@@ -99,7 +99,7 @@ RUN mkdir -p /var/log/supervisor
 ADD conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Port
-EXPOSE 10087 11000 19000
+EXPOSE 18087 11000 19000
 
 # Daemon
 CMD ["/usr/bin/supervisord"]
