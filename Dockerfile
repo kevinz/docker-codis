@@ -74,9 +74,10 @@ RUN mkdir -p $GOPATH/src/$CODIS_GITHUB_URL \
 # && go get -d $GOPATH/src/$CODIS_GITHUB_URL \
  && cd $GOPATH/src/github.com/wandoulabs/codis \
  && make 
- 
-RUN cp $GOPATH/src/$CODIS_GITHUB_URL/bin/* $GOPATH/bin \
-&& mkdir $CODIS_HOME 
+
+RUN mkdir $CODIS_HOME/bin \
+&& cp -r $GOPATH/src/$CODIS_GITHUB_URL/bin/* $CODIS_HOME/bin \
+
  
 # && tar -C $CODIS_HOME -xvf deploy.tar \
 ADD conf/codis/* $CODIS_HOME
